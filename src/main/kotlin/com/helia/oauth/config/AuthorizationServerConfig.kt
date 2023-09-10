@@ -87,8 +87,9 @@ internal class AuthorizationServerConfig {
                 s.add(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
             }
             .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+            .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
             .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-            .redirectUri("http://127.0.0.1:8070/login/oauth2/code/messaging-gateway-oidc")
+            .redirectUri("http://172.17.0.1:8070/login/oauth2/code/messaging-gateway-oidc")
             .scope(OidcScopes.OPENID)
             .scope(OidcScopes.PROFILE)
             .scope(OidcScopes.EMAIL)
@@ -147,7 +148,7 @@ internal class AuthorizationServerConfig {
     @Bean
     fun authorizationServerSettings(): AuthorizationServerSettings {
         return AuthorizationServerSettings.builder()
-            .issuer("http://127.0.0.1:8080")
+            .issuer("http://172.17.0.1:8080")
             .build()
     }
 
